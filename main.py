@@ -44,9 +44,9 @@ def run_command_on_instance_id_from_vmss(vmss_name, vmss_rg, instance_id, subscr
 def main():
     parser = raw_parser()
     required_opts = parser.add_argument_group('required arguments')
-    required_opts.add_argument('--command', type=str.lower, required=True, help='Command to run on all AKS clusters and nodes')
-    required_opts.add_argument('--tenant', type=str.lower, required=True, help='Tenant ID')
-    parser.add_argument('--filter', type=str.lower, required=False, help='Filter subscriptions a string contained in the name')
+    required_opts.add_argument('--command', required=True, help='Command to run on all AKS clusters and nodes')
+    required_opts.add_argument('--tenant', required=True, help='Tenant ID')
+    parser.add_argument('--filter', required=False, help='Filter subscriptions a string contained in the name')
 
     args = parser.parse_args()
     # subscription_ids = get_all_accounts_per_tenant(tenant=args.tenant, name_filter=args.filter)
