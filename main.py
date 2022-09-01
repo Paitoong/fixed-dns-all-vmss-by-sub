@@ -39,7 +39,7 @@ def run_command_on_instance_id_from_vmss(vmss_name, vmss_rg, instance_id, subscr
         + ' --subscription ' + subscription
         + f' --scripts "{command}"'
     )
-    return [(command["displayStatus"], command["message"]) for command in json.loads(command_output)["value"]]
+    return [(command["displayStatus"], command["message"], subscription) for command in json.loads(command_output)["value"]]
 
 def main():
     parser = raw_parser()
